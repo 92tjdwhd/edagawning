@@ -33,12 +33,10 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
+                android:layout_height="60dp"
                 android:background="#00000000"
-                android:src="@drawable/logo_black"
-                android:padding="10dp"
+                android:src="@drawable/geosung_logo"
+                android:padding="0dp"
                 android:scaleType="fitCenter"
                 android:text="Hello World!" />
 

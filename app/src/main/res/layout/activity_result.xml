@@ -41,15 +41,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="center|left"
-                    android:layout_weight="4"
-                    android:paddingRight="40dp"
+                    android:layout_weight="5"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/logo_black" />
+                    android:src="@drawable/geosung_logo" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="2" />
+                    android:layout_weight="1" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,7 +106,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="상  호: 엣지어닝"
+                            android:text="상  호: 거성산업 Sunblock"
                             android:textColor="#000000"
                             android:textSize="13dp" />
 
@@ -115,7 +114,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="대표자: 손연호"
+                            android:text="대표자: 안승철"
                             android:textColor="#000000"
                             android:textSize="13dp" />
                     </LinearLayout>
@@ -135,7 +134,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1.5"
                     android:paddingStart="5dp"
-                    android:text="대표번호: 070.8732.9200"
+                    android:text="대표번호: 02.2244.5417"
                     android:textColor="#000000"
                     android:textSize="13dp" />
 
