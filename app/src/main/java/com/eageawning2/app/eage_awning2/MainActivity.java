@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox led_box, rgb_box, ifoam_box;
     Boolean firstChoice = false, widthChoice = false, projectionChoice = false;
     String opctionType;
-   // static Double totalPrice = 0.0;
+    // static Double totalPrice = 0.0;
     FloatingActionButton resetButton, addButton;
     boolean option_case2_op1_check = false, select_dk_check, select_al_check;
     ArrayList<PowerMenuItem> proName;
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     String basePrice = "0", hddPrice = "0", dkPrice = "0", rgbPrice = "0", ledPrice = "0", alPrice = "0", ifoamPrice = "0";
     TextView widthUnit, projectionUnit;
     FinalPriceClass totalPrice = FinalPriceClass.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
         if (type == 0) {
             optionType1.setVisibility(View.VISIBLE);
             optionType2.setVisibility(View.GONE);
+        } else if (type == 2) {
+            optionType1.setVisibility(View.GONE);
+            optionType2.setVisibility(View.GONE);
         } else {
             optionType1.setVisibility(View.GONE);
             optionType2.setVisibility(View.VISIBLE);
@@ -115,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         return a;
     }
 
-    public void optionReset(){
+    public void optionReset() {
         led_box.setChecked(false);
         rgb_box.setChecked(false);
         ifoam_box.setChecked(false);
@@ -139,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         /* 리스트뷰에 어댑터 등록 */
         listView.setAdapter(mMyAdapter);
     }
+
     public void reset() {
         firstChoice = false;
         widthChoice = false;
@@ -181,6 +186,9 @@ public class MainActivity extends AppCompatActivity {
         proName.add(new PowerMenuItem("Cantilever Radian", false));
         proName.add(new PowerMenuItem("Plaza Novo", false));
         proName.add(new PowerMenuItem("Plaza Radian", false));
+        proName.add(new PowerMenuItem("Exxen", false));
+        proName.add(new PowerMenuItem("Rota", false));
+        proName.add(new PowerMenuItem("Vertex 150 Zip System", false));
         mNameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -191,9 +199,9 @@ public class MainActivity extends AppCompatActivity {
                 mNamePowerMenu.setOnMenuItemClickListener(new OnMenuItemClickListener<PowerMenuItem>() {
                     @Override
                     public void onItemClick(int position, PowerMenuItem item) {
-                        String projectionarray[][] = dbHelper.getprojectionResult(item.title);
-                        String widtharray[][] = dbHelper.getWidthResult(item.title);
-                        String option[][] = dbHelper.getOptionResult(item.title);
+                        String[][] projectionarray = dbHelper.getprojectionResult(item.title);
+                        String[][] widtharray = dbHelper.getWidthResult(item.title);
+                        String[][] option = dbHelper.getOptionResult(item.title);
                         opctionType = option[0][0];
 
                         ArrayList<PowerMenuItem> proWidth = new ArrayList<PowerMenuItem>();
@@ -208,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
                                     widthUnit.setText("(단위: mm)");
                             }
                         }
+
                         for (int i = 0; i < projectionarray.length; i++) {
                             if (projectionarray[i][0] != null) {
                                 projection.add(new PowerMenuItem(projectionarray[i][0], false));
@@ -224,9 +233,9 @@ public class MainActivity extends AppCompatActivity {
                         mProjectionPowerMenu = new PowerMenu.Builder(getApplicationContext())
                                 .addItemList(projection)
                                 .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT).setHeight(800).setWith(500).build();
-                        if(item.title.equals("Cantilever Novo") ||item.title.equals("Cantilever Radian")){
+                        if (item.title.equals("Cantilever Novo") || item.title.equals("Cantilever Radian")) {
                             select_al.setVisibility(View.INVISIBLE);
-                        }else {
+                        } else {
                             select_al.setVisibility(View.INVISIBLE);
                         }
                         mNameButton.setText(item.title);
@@ -244,10 +253,16 @@ public class MainActivity extends AppCompatActivity {
                         select_dk.setChecked(false);
                         select_al.setChecked(false);
                         option_case2_op1.check(R.id.select_st);
-                        if(mNameButton.getText().toString().equals("Quattro")) {
+                        if (mNameButton.getText().toString().equals("Quattro")) {
                             ifoam_box.setText("Linear Fabric Dimmer Led Lighting");
-                        }else {
+                            ifoam_box.setVisibility(View.VISIBLE);
+                        } else if (mNameButton.getText().toString().equals("Rota")) {
+                            ifoam_box.setVisibility(View.INVISIBLE);
+                        } else if (mNameButton.getText().toString().equals("Vertex 150 Zip System")) {
+                            select_al.setVisibility(View.INVISIBLE);
+                        } else {
                             ifoam_box.setText("Insulation Foam");
+                            ifoam_box.setVisibility(View.VISIBLE);
                         }
                         option_case2_op1.getChildAt(1).setEnabled(false);
                         totalPrice.resetTotal();
@@ -275,27 +290,93 @@ public class MainActivity extends AppCompatActivity {
                         mWidthPowerMenu.setOnMenuItemClickListener(new OnMenuItemClickListener<PowerMenuItem>() {
                             @Override
                             public void onItemClick(int position, PowerMenuItem item) {
-                                mWidthButton.setText(item.title);
-                                String Pricearray[][] = dbHelper.getPriceResult(mNameButton.getText().toString(), item.title, mProjectionButton.getText().toString(), "standard");
-                                Log.d("result", String.valueOf(Pricearray[0][0]));
-                                optionReset();
-                                Log.d("ledPrice",ledPrice);
-                                totalPrice.resetTotal();
-                                totalPrice.addTotalPrice(calculus(Integer.parseInt(Pricearray[0][0])));
-                                //totalPrice = totalPrice - calculus(Integer.parseInt(basePrice)) + calculus(Integer.parseInt(Pricearray[0][0]));
-                                BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
-                                basePrice = Pricearray[0][0];
-                               // ledPrice = "0";
+                                if (mNameButton.getText().equals("Exxen")) {
+                                    if (Integer.parseInt(item.title) > 4500) {
+                                        String[][] projectionarray = dbHelper.getprojectionResult((String) mNameButton.getText());
+                                        ArrayList<PowerMenuItem> projection = new ArrayList<PowerMenuItem>();
+                                        for (int i = 0; i < projectionarray.length; i++) {
+                                            if (Integer.parseInt(projectionarray[i][0]) > 6040)
+                                                continue;
+                                            if (projectionarray[i][0] != null) {
+                                                projection.add(new PowerMenuItem(projectionarray[i][0], false));
+                                                if (!opctionType.equals(String.valueOf(0)))
+                                                    projectionUnit.setText("(단위: cm)");
+                                                else
+                                                    projectionUnit.setText("(단위: mm)");
+                                            }
+                                        }
+                                        mProjectionPowerMenu = new PowerMenu.Builder(getApplicationContext())
+                                                .addItemList(projection)
+                                                .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT).setHeight(800).setWith(500).build();
+                                    } else {
+                                        String[][] projectionarray = dbHelper.getprojectionResult((String) mNameButton.getText());
+                                        ArrayList<PowerMenuItem> projection = new ArrayList<PowerMenuItem>();
+                                        for (int i = 0; i < projectionarray.length; i++) {
+                                            if (projectionarray[i][0] != null) {
+                                                projection.add(new PowerMenuItem(projectionarray[i][0], false));
+                                                if (!opctionType.equals(String.valueOf(0)))
+                                                    projectionUnit.setText("(단위: cm)");
+                                                else
+                                                    projectionUnit.setText("(단위: mm)");
+                                            }
+                                        }
+                                        mProjectionPowerMenu = new PowerMenu.Builder(getApplicationContext())
+                                                .addItemList(projection)
+                                                .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT).setHeight(800).setWith(500).build();
+                                    }
+                                    mWidthButton.setText(item.title);
+                                    optionReset();
+                                    totalPrice.resetTotal();
+                                    mWidthPowerMenu.dismiss();
+                                    widthChoice = true;
+                                    BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
+                                    mProjectionButton.setText("Click");
+                                    mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", Integer.parseInt(bigDecimal.toString())));
+                                } else {
+                                    mWidthButton.setText(item.title);
+                                    String[][] Pricearray = dbHelper.getPriceResult(mNameButton.getText().toString(), item.title, mProjectionButton.getText().toString(), "standard");
+                                    Log.d("result", String.valueOf(Pricearray[0][0]));
+                                    optionReset();
+                                    Log.d("ledPrice", ledPrice);
+                                    totalPrice.resetTotal();
+                                    totalPrice.addTotalPrice(calculus(Integer.parseInt(Pricearray[0][0])));
+                                    //totalPrice = totalPrice - calculus(Integer.parseInt(basePrice)) + calculus(Integer.parseInt(Pricearray[0][0]));
+                                    BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
+                                    basePrice = Pricearray[0][0];
+                                    // ledPrice = "0";
 
-                                mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", Integer.parseInt(bigDecimal.toString())));
-                                mWidthPowerMenu.dismiss();
-                                widthChoice = true;
+                                    mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", Integer.parseInt(bigDecimal.toString())));
+                                    mWidthPowerMenu.dismiss();
+                                    widthChoice = true;
+                                }
+
                             }
                         });
                     } else {
+
                         mWidthPowerMenu.setOnMenuItemClickListener(new OnMenuItemClickListener<PowerMenuItem>() {
                             @Override
                             public void onItemClick(int position, PowerMenuItem item) {
+                                if (mNameButton.getText().equals("Exxen")) {
+                                    if (Integer.parseInt(item.title) > 4500) {
+                                        String[][] projectionarray = dbHelper.getprojectionResult((String) mNameButton.getText());
+                                        ArrayList<PowerMenuItem> projection = new ArrayList<PowerMenuItem>();
+                                        for (int i = 0; i < projectionarray.length; i++) {
+                                            if (Integer.parseInt(projectionarray[i][0]) > 6040)
+                                                continue;
+                                            if (projectionarray[i][0] != null) {
+                                                projection.add(new PowerMenuItem(projectionarray[i][0], false));
+                                                if (!opctionType.equals(String.valueOf(0)))
+                                                    projectionUnit.setText("(단위: cm)");
+                                                else
+                                                    projectionUnit.setText("(단위: mm)");
+                                            }
+                                        }
+                                        mProjectionPowerMenu = new PowerMenu.Builder(getApplicationContext())
+                                                .addItemList(projection)
+                                                .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT).setHeight(800).setWith(500).build();
+                                    }
+                                }
                                 mWidthButton.setText(item.title);
                                 mWidthPowerMenu.dismiss();
                                 widthChoice = true;
@@ -320,7 +401,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onItemClick(int position, PowerMenuItem item) {
                                 mProjectionButton.setText(item.title);
-                                String Pricearray[][] = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), item.title, "standard");
+                                String[][] Pricearray = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), item.title, "standard");
                                 Log.d("result", String.valueOf(Pricearray[0][0]));
                                 optionReset();
                                 totalPrice.resetTotal();
@@ -329,7 +410,7 @@ public class MainActivity extends AppCompatActivity {
                                 BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
                                 basePrice = Pricearray[0][0];
                                 Log.d("result", basePrice);
-                                mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인",  new BigInteger(bigDecimal.toString())));
+                                mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", new BigInteger(bigDecimal.toString())));
                                 projectionChoice = true;
                                 option_case2_op1.getChildAt(1).setEnabled(true);
                                 mProjectionPowerMenu.dismiss();
@@ -349,11 +430,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (!mWidthButton.getText().equals("Click") && !mProjectionButton.getText().equals("Click")) {
-                    String Pricearray[][] = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), mProjectionButton.getText().toString(), "standard");
-                    String hddarray[][] = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), mProjectionButton.getText().toString(), "HDD");
+                    String[][] Pricearray = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), mProjectionButton.getText().toString(), "standard");
+                    String[][] hddarray = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), mProjectionButton.getText().toString(), "HDD");
                     switch (checkedId) {
                         case R.id.select_st:
-                            totalPrice.changePrice(calculus(Integer.parseInt(Pricearray[0][0])),calculus(Integer.parseInt(hddarray[0][0])));
+                            totalPrice.changePrice(calculus(Integer.parseInt(Pricearray[0][0])), calculus(Integer.parseInt(hddarray[0][0])));
                             if (option_case2_op1_check) {
                                 Log.d("result", String.valueOf(hddarray[0][0]));
                                 hddPrice = "0";
@@ -364,7 +445,7 @@ public class MainActivity extends AppCompatActivity {
 //                                }
 
                                 BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
-                                mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인",  new BigInteger(bigDecimal.toString())));
+                                mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", new BigInteger(bigDecimal.toString())));
 
                             }
                             break;
@@ -373,7 +454,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.d("hdd", String.valueOf(hddarray[0][0]));
                             Log.d("price", String.valueOf(Pricearray[0][0]));
                             int intergerhdd = Integer.parseInt(hddarray[0][0]) - Integer.parseInt(basePrice);
-                            totalPrice.changehdd(calculus(Integer.parseInt(Pricearray[0][0])),calculus(Integer.parseInt(hddarray[0][0])));
+                            totalPrice.changehdd(calculus(Integer.parseInt(Pricearray[0][0])), calculus(Integer.parseInt(hddarray[0][0])));
 
                             hddPrice = String.valueOf(intergerhdd);
 //                            if(select_dk_check){
@@ -383,7 +464,7 @@ public class MainActivity extends AppCompatActivity {
 //                            }
                             BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
                             Log.d("checkenable", String.valueOf(select_dk_check));
-                            mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인",  new BigInteger(bigDecimal.toString())));
+                            mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", new BigInteger(bigDecimal.toString())));
                             break;
                     }
                 } else {
@@ -413,19 +494,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (!mWidthButton.getText().equals("Click") && !mProjectionButton.getText().equals("Click")) {
-                    String optionarray[][] = dbHelper.getOptionPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), "Aerofoil Louvre");
+                    String[][] optionarray = dbHelper.getOptionPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), "Aerofoil Louvre");
                     if (isChecked) {
                         Log.d("result", String.valueOf(optionarray[0][0]));
                         alPrice = String.valueOf(optionarray[0][0]);
                         totalPrice.addTotalPrice(calculus(Integer.parseInt(optionarray[0][0])));
                         BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
-                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인",  new BigInteger(bigDecimal.toString())));
+                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", new BigInteger(bigDecimal.toString())));
                     } else {
                         Log.d("result", String.valueOf(optionarray[0][0]));
                         alPrice = "0";
                         totalPrice.minusTotalPrice(calculus(Integer.parseInt(optionarray[0][0])));
                         BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
-                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인",  new BigInteger(bigDecimal.toString())));
+                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", new BigInteger(bigDecimal.toString())));
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "제품 사이즈를 선택하여주세요", Toast.LENGTH_SHORT).show();
@@ -466,19 +547,19 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (!mWidthButton.getText().equals("Click") && !mProjectionButton.getText().equals("Click")) {
 
-                    String optionarray[][] = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), mProjectionButton.getText().toString(), "Led Stripe Dimmer Lighting");
+                    String[][] optionarray = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), mProjectionButton.getText().toString(), "Led Stripe Dimmer Lighting");
                     if (isChecked) {
                         Log.d("result", String.valueOf(optionarray[0][0]));
                         ledPrice = String.valueOf(optionarray[0][0]);
                         totalPrice.addTotalPrice(calculus(Integer.parseInt(optionarray[0][0])));
                         BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
-                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인",  new BigInteger(bigDecimal.toString())));
+                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", new BigInteger(bigDecimal.toString())));
                     } else {
                         Log.d("result false", String.valueOf(optionarray[0][0]));
                         ledPrice = "0";
                         totalPrice.minusTotalPrice(calculus(Integer.parseInt(optionarray[0][0])));
                         BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
-                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인",  new BigInteger(bigDecimal.toString())));
+                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", new BigInteger(bigDecimal.toString())));
                     }
                 } else {
                     led_box.setChecked(false);
@@ -491,19 +572,19 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (!mWidthButton.getText().equals("Click") && !mProjectionButton.getText().equals("Click")) {
 
-                    String optionarray[][] = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), mProjectionButton.getText().toString(), "RGB Led-Hidden Stripe Lightin");
+                    String[][] optionarray = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), mProjectionButton.getText().toString(), "RGB Led-Hidden Stripe Lightin");
                     if (isChecked) {
                         Log.d("result", String.valueOf(optionarray[0][0]));
                         rgbPrice = String.valueOf(optionarray[0][0]);
                         totalPrice.addTotalPrice(calculus(Integer.parseInt(optionarray[0][0])));
                         BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
-                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인",  new BigInteger(bigDecimal.toString())));
+                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", new BigInteger(bigDecimal.toString())));
                     } else {
                         Log.d("result", String.valueOf(optionarray[0][0]));
                         rgbPrice = "0";
                         totalPrice.minusTotalPrice(calculus(Integer.parseInt(optionarray[0][0])));
                         BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
-                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인",  new BigInteger(bigDecimal.toString())));
+                        mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", new BigInteger(bigDecimal.toString())));
                     }
                 } else {
                     rgb_box.setChecked(false);
@@ -515,13 +596,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (!mWidthButton.getText().equals("Click") && !mProjectionButton.getText().equals("Click")) {
-                    String option="";
-                    if(mNameButton.getText().toString().equals("Quattro")){
-                        option="Linear Fabric Dimmer Led Lighting";
-                    }else {
-                        option="Insulation Foam";
+                    String option = "";
+                    if (mNameButton.getText().toString().equals("Quattro")) {
+                        option = "Linear Fabric Dimmer Led Lighting";
+                    } else {
+                        option = "Insulation Foam";
                     }
-                    String optionarray[][] = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), mProjectionButton.getText().toString(), option);
+                    String[][] optionarray = dbHelper.getPriceResult(mNameButton.getText().toString(), mWidthButton.getText().toString(), mProjectionButton.getText().toString(), option);
                     if (isChecked) {
                         Log.d("result", String.valueOf(optionarray[0][0]));
                         ifoamPrice = String.valueOf(optionarray[0][0]);
@@ -566,12 +647,12 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                     intent.putExtra("productName", mNameButton.getText().toString());
                     intent.putExtra("proWidth", mWidthButton.getText().toString());
-                    intent.putExtra("productSize", mWidthButton.getText().toString() + " × " + mProjectionButton.getText().toString()+ " "+widthUnit.getText().toString());
+                    intent.putExtra("productSize", mWidthButton.getText().toString() + " × " + mProjectionButton.getText().toString() + " " + widthUnit.getText().toString());
                     intent.putExtra("basePrice", String.format("￦%,d", calculus(Integer.parseInt(basePrice)).intValue()));
                     intent.putExtra("options", getOptions());
                     intent.putExtra("optionsCase", opctionType);
                     intent.putExtra("hdd", String.format("%,d", calculus(Integer.parseInt(hddPrice)).intValue()));
-                    intent.putExtra("dk", String.format("%,d",Integer.parseInt(dkPrice)));
+                    intent.putExtra("dk", String.format("%,d", Integer.parseInt(dkPrice)));
                     intent.putExtra("rgb", String.format("%,d", calculus(Integer.parseInt(rgbPrice)).intValue()));
                     intent.putExtra("led", String.format("%,d", calculus(Integer.parseInt(ledPrice)).intValue()));
                     intent.putExtra("ifoam", String.format("%,d", calculus(Integer.parseInt(ifoamPrice)).intValue()));
@@ -583,7 +664,7 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("price" + i, String.format("%,d", bigInteger.multiply(BigInteger.valueOf(10000))));
                     }
                     BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
-                    intent.putExtra("totalPrice", String.format("￦%,d",new BigInteger(bigDecimal.toString())));
+                    intent.putExtra("totalPrice", String.format("￦%,d", new BigInteger(bigDecimal.toString())));
                     //  intent.putExtra("coin_name", sSymbol);
                     startActivityForResult(intent, 0);
                 } else {
@@ -601,11 +682,11 @@ public class MainActivity extends AppCompatActivity {
                 options.add("Led Stripe Dimmer Lighting");
             if (rgb_box.isChecked())
                 options.add("RGB Led-Hidden Stripe Lighting");
-            if (ifoam_box.isChecked()){
-                if(mNameButton.getText().toString().equals("Quattro")){
+            if (ifoam_box.isChecked()) {
+                if (mNameButton.getText().toString().equals("Quattro")) {
                     options.add("Linear Fabric Dimmer Led Lighting");
-                }else
-                options.add("Insulation Foam");
+                } else
+                    options.add("Insulation Foam");
             }
 
 

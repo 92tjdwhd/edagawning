@@ -30,23 +30,314 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','mn4',8,0,1,1)");
         sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','tw22',9,0,1,1)");
         sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','tw33',10,0,1,1)");
+        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','Exxen',11,0,0,0)");
+        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','Rota',12,0,0,0)");
+        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','Vertex',13,0,2,0)");
 
-        sqLiteDatabase.execSQL("CREATE TABLE production_width_info( `aerolux` TEXT, `axis` TEXT, `quattro` TEXT, `novo` TEXT, `radian` TEXT, `luna` TEXT, `mn3` TEXT, `mn4` TEXT, `tw22` TEXT, `tw33` TEXT)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(1800,1800,2500,300,300,300,300,300,300,300)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(2000,2000,3000,400,400,400,400,400,400,400)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(2200,2200,3500,450,450,500,450,450,450,450)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(2400,2400,4000,500,500,600,500,500,500,500)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(2600,2600,4500,600,600,700,600,600,600,600)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(2800,2800,5000,700,700,800,700,700,700,700)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(3000,3000,5500,800,800,900,800,800,800,800)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(3200,3200,null,900,900,1000,900,900,900,900)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(3400,3400,null,1000,1000,1100,1000,1000,1000,1000)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(3600,3600,null,1100,1100,1200,1100,1100,1100,1100)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(3800,3800,null,1200,1200,1300,1200,1200,1200,1200)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(4000,4000,null,1300,1300,null,1300,1300,1300,1300)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4200,null,null,null,null,null,null,null,null)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4400,null,null,null,null,null,null,null,null)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4500,null,null,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("CREATE TABLE production_width_info( `aerolux` TEXT, `axis` TEXT, `quattro` TEXT, `novo` TEXT, `radian` TEXT, `luna` TEXT, `mn3` TEXT, `mn4` TEXT, `tw22` TEXT, `tw33` TEXT, `exxen` TEXT, `rota` TEXT, `vertex` TEXT)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(1800,1800,2500,300,300,300,300,300,300,300,1800,1800,1000)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(2000,2000,3000,400,400,400,400,400,400,400,2000,2000,1200)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(2200,2200,3500,450,450,500,450,450,450,450,2200,2200,1400)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(2400,2400,4000,500,500,600,500,500,500,500,2400,2400,1600)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(2600,2600,4500,600,600,700,600,600,600,600,2600,2600,1800)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(2800,2800,5000,700,700,800,700,700,700,700,2800,2800,2000)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(3000,3000,5500,800,800,900,800,800,800,800,3000,3000,2200)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(3200,3200,null,900,900,1000,900,900,900,900,3200,3200,2400)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(3400,3400,null,1000,1000,1100,1000,1000,1000,1000,3400,3400,3600)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(3600,3600,null,1100,1100,1200,1100,1100,1100,1100,3600,3600,3800)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(3800,3800,null,1200,1200,1300,1200,1200,1200,1200,3800,3800,4000)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(4000,4000,null,1300,1300,null,1300,1300,1300,1300,4000,4000,4200)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4200,null,null,null,null,null,null,null,null,4200,null,4400)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4400,null,null,null,null,null,null,null,null,4400,null,4600)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4500,null,null,null,null,null,null,null,null,4500,null,4800)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,4600,null,5000)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,4800,null,5200)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5000,null,5400)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5200,null,5600)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5400,null,5800)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5600,null,6000)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5800,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6000,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6200,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6400,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6600,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6800,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,7000,null,null)");
+
+
+        //exxen
+        sqLiteDatabase.execSQL("CREATE TABLE exxen (`Projection` INTEGER, `1800` REAL, `2000` REAL, `2200` REAL, `2400` REAL, `2600` REAL, `2800` REAL, `3000` REAL, `3200` REAL, `3400` REAL, `3600` REAL, `3800` REAL, `4000` REAL,`4200` REAL,`4400` REAL,`4500` REAL,`4600` REAL,`4800` REAL,`5000` REAL,`5200` REAL,`5400` REAL,`5600` REAL,`5800` REAL,`6000` REAL,`6200` REAL,`6400` REAL,`6600` REAL,`6800` REAL,`7000` REAL,`option` TEXT )");
+        sqLiteDatabase.execSQL("insert into exxen Values(1790, 5536, 5640, 5745, 5849, 5954, 6058, 6162, 6267, 6371, 6476, 6580, 6684, 6789, 6893, 6945, 7233, 7337, 7441, 7546, 7650, 7755, 7859, 7963, 8068, 8172, 8277, 8381, 8485, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2040, 5769, 5883, 5997, 6111, 6225, 6338, 6452, 6566, 6680, 6794, 6908, 7021, 7135, 7249, 7306, 7632, 7745, 7859, 7973, 8087, 8201, 8315, 8428, 8542, 8656, 8770, 8884, 8998, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2290, 6002, 6126, 6249, 6372, 6495, 6619, 6742, 6865, 6989, 7112, 7235, 7358, 7482, 7605, 7667, 8030, 8154, 8277, 8400, 8524, 8647, 8770, 8894, 9017, 9140, 9263, 9387, 9510, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2540, 6235, 6368, 6501, 6634, 6766, 6899, 7032, 7164, 7297, 7430, 7563, 7695, 7828, 7961, 8027, 8429, 8562, 8695, 8828, 8960, 9093, 9226, 9359, 9491, 9624, 9757, 9889, 10022, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2790, 6468, 6611, 6753, 6895, 7037, 7179, 7322, 7464, 7606, 7748, 7890, 8032, 8175, 8317, 8388, 8828, 8970, 9113, 9255, 9397, 9539, 9681, 9824, 9966, 10108, 10250, 10392, 10534, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3040, 6702, 6853, 7005, 7156, 7308, 7460, 7611, 7763, 7915, 8066, 8218, 8369, 8521, 8673, 8748, 9227, 9379, 9530, 9682, 9834, 9985, 10137, 10289, 10440, 10592, 10743, 10895, 11047, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3290, 6935, 7096, 7257, 7418, 7579, 7740, 7901, 8062, 8223, 8384, 8545, 8706, 8867, 9028, 9109, 9626, 9787, 9948, 10109, 10270, 10431, 10593, 10754, 10915, 11076, 11237, 11398, 11559, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3540, 7168, 7338, 7509, 7679, 7850, 8020, 8191, 8361, 8532, 8702, 8873, 9043, 9214, 9384, 9470, 10025, 10196, 10366, 10537, 10707, 10878, 11048, 11219, 11389, 11560, 11730, 11901, 12071, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3790, 7401, 7581, 7761, 7941, 8121, 8301, 8481, 8661, 8840, 9020, 9200, 9380, 9560, 9740, 9830, 10424, 10604, 10784, 10964, 11144, 11324, 11504, 11684, 11864, 12044, 12224, 12403, 12583, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4040, 7634, 7823, 8013, 8202, 8392, 8581, 8770, 8960, 9149, 9339, 9528, 9717, 9907, 10096, 10191, 10823, 11012, 11202, 11391, 11580, 11770, 11959, 12149, 12338, 12527, 12717, 12906, 13096, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4290, 7867, 8066, 8265, 8464, 8662, 8861, 9060, 9259, 9458, 9657, 9855, 10054, 10253, 10452, 10551, 11222, 11421, 11619, 11818, 12017, 12216, 12415, 12614, 12813, 13011, 13210, 13409, 13608, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4540, 8100, 8308, 8517, 8725, 8933, 9142, 9350, 9558, 9766, 9975, 10183, 10391, 10600, 10808, 10912, 11621, 11829, 12037, 12246, 12454, 12662, 12870, 13079, 13287, 13495, 13704, 13912, 14120, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4790, 8333, 8551, 8769, 8986, 9204, 9422, 9640, 9857, 10075, 10293, 10511, 10728, 10946, 11164, 11273, 12020, 12237, 12455, 12673, 12891, 13108, 13326, 13544, 13761, 13979, 14197, 14415, 14632, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5040, 8566, 8793, 9021, 9248, 9475, 9702, 9929, 10157, 10384, 10611, 10838, 11065, 11292, 11520, 11633, 12419, 12646, 12873, 13100, 13327, 13554, 13782, 14009, 14236, 14463, 14690, 14917, 15145, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5290, 8799, 9036, 9273, 9509, 9746, 9982, 10219, 10456, 10692, 10929, 11166, 11402, 11639, 11875, 11994, 12817, 13054, 13291, 13527, 13764, 14001, 14237, 14474, 14710, 14947, 15184, 15420, 15657, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5540, 9032, 9279, 9525, 9771, 10017, 10263, 10509, 10755, 11001, 11247, 11493, 11739, 11985, 12231, 12354, 13216, 13462, 13709, 13955, 14201, 14447, 14693, 14939, 15185, 15431, 15677, 15923, 16169, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5790, 9266, 9521, 9777, 10032, 10288, 10543, 10799, 11054, 11310, 11565, 11821, 12076, 12332, 12587, 12715, 13615, 13871, 14126, 14382, 14637, 14893, 15148, 15404, 15659, 15915, 16170, 16426, 16681, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6040, 9499, 9764, 10029, 10294, 10558, 10823, 11088, 11353, 11618, 11883, 12148, 12413, 12678, 12943, 13076, 14014, 14279, 14544, 14809, 15074, 15339, 15604, 15869, 16134, 16399, 16664, 16929, 17194, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6290, 9732, 10006, 10281, 10555, 10829, 11104, 11378, 11653, 11927, 12201, 12476, 12750, 13025, 13299, 13436, null, null, null, null, null, null, null, null, null, null, null, null, null, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6540, 10711, 10994, 11278, 11562, 11846, 12130, 12414, 12698, 12981, 13265, 13549, 13833, 14117, 14401, 14543, null, null, null, null, null, null, null, null, null, null, null, null, null, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6790, 10944, 11237, 11530, 11824, 12117, 12410, 12703, 12997, 13290, 13583, 13877, 14170, 14463, 14756, 14903, null, null, null, null, null, null, null, null, null, null, null, null, null, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7040, 11177, 11480, 11782, 12085, 12388, 12690, 12993, 13296, 13599, 13901, 14204, 14507, 14810, 15112, 15264, null, null, null, null, null, null, null, null, null, null, null, null, null, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7290, 11410, 11722, 12034, 12346, 12659, 12971, 13283, 13595, 13907, 14220, 14532, 14844, 15156, 15468, 15624, null, null, null, null, null, null, null, null, null, null, null, null, null, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7540, 11643, 11965, 12286, 12608, 12930, 13251, 13573, 13894, 14216, 14538, 14859, 15181, 15502, 15824, 15985, null, null, null, null, null, null, null, null, null, null, null, null, null, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7790, 11876, 12207, 12538, 12869, 13200, 13531, 13863, 14194, 14525, 14856, 15187, 15518, 15849, 16180, 16345, null, null, null, null, null, null, null, null, null, null, null, null, null, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(8040, 12109, 12450, 12790, 13131, 13471, 13812, 14152, 14493, 14833, 15174, 15514, 15855, 16195, 16536, 16706, null, null, null, null, null, null, null, null, null, null, null, null, null, 'standard')");
+        sqLiteDatabase.execSQL("insert into exxen Values(1790, 1153, 1153, 1153, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1681, 1681, 1681, 1681, 1681, 1778, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2040, 1153, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1681, 1681, 1681, 1681, 1681, 1778, 1778, 1778, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2290, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1601, 1601, 1681, 1681, 1681, 1681, 1681, 1778, 1778, 1778, 1778, 1778, 1867, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2540, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1681, 1681, 1681, 1681, 1681, 1778, 1778, 1778, 1778, 1778, 1867, 1867, 1867, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2790, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1681, 1681, 1778, 1778, 1778, 1778, 1778, 1867, 1867, 1867, 1867, 1867, 1867, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3040, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1778, 1778, 1778, 1778, 1778, 1867, 1867, 1867, 1867, 1867, 1867, 1867, 2000, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3290, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1778, 1778, 1867, 1867, 1867, 1867, 1867, 1867, 1867, 2000, 2000, 2000, 2000, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3540, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1867, 1867, 1867, 1867, 1867, 1867, 1867, 2000, 2000, 2000, 2000, 2000, 2000, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3790, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 1867, 1867, 1867, 1867, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4040, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 1601, 1867, 1867, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2167, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4290, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2167, 2167, 2167, 2167, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4540, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1601, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2167, 2167, 2167, 2167, 2167, 2167, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4790, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 2000, 2000, 2000, 2000, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5040, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1681, 2000, 2000, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5290, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1681, 1681, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2300, 2300, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5540, 1465, 1465, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1681, 1681, 1681, 1681, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2167, 2300, 2300, 2300, 2300, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5790, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1681, 1681, 1681, 1681, 1681, 2167, 2167, 2167, 2167, 2167, 2167, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6040, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1681, 1681, 1681, 1681, 1681, 1778, 2167, 2167, 2167, 2167, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6290, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1681, 1681, 1681, 1681, 1681, 1778, 1778, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6540, 1601, 1601, 1601, 1601, 1601, 1601, 1681, 1681, 1681, 1681, 1681, 1778, 1778, 1778, 1778, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6790, 1601, 1601, 1601, 1601, 1601, 1681, 1681, 1681, 1681, 1681, 1778, 1778, 1778, 1778, 1778, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7040, 1601, 1601, 1601, 1601, 1681, 1681, 1681, 1681, 1681, 1778, 1778, 1778, 1778, 1778, 1867, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7290, 1601, 1601, 1601, 1681, 1681, 1681, 1681, 1681, 1778, 1778, 1778, 1778, 1867, 1867, 1867, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7540, 1601, 1681, 1681, 1681, 1681, 1681, 1778, 1778, 1778, 1778, 1778, 1867, 1867, 1867, 1867, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7790, 1681, 1681, 1681, 1681, 1681, 1778, 1778, 1778, 1778, 1778, 1867, 1867, 1867, 1867, 1867, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(8040, 1681, 1681, 1681, 1681, 1778, 1778, 1778, 1778, 1778, 1867, 1867, 1867, 1867, 1867, 1867, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into exxen Values(1790, 1277, 1277, 1277, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2076, 2076, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2040, 1277, 1277, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2076, 2076, 2076, 2076, 2076, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2290, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2540, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1854, 1854, 1854, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2790, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3040, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2294, 2294, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3290, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2294, 2294, 2294, 2294, 2294, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3540, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 2076, 2076, 2076, 2076, 2076, 2076, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3790, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 2076, 2076, 2076, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4040, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 2076, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4290, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 1854, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4540, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2440, 2440, 2440, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4790, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2294, 2440, 2440, 2440, 2440, 2440, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5040, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2294, 2294, 2294, 2294, 2294, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5290, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2294, 2294, 2294, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5540, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 2549, 2549, 2549, 2549, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5790, 1680, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2076, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 2440, 2549, 2549, 2549, 2549, 2549, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6040, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2076, 2076, 2440, 2440, 2440, 2440, 2440, 2549, 2549, 2549, 2549, 2549, 2549, 2549, 2549, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6290, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2076, 2076, 2076, 2076, null, null, null, null, null, null, null, null, null, null, null, null, null, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6540, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2076, 2076, 2076, 2076, 2076, null, null, null, null, null, null, null, null, null, null, null, null, null, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6790, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2076, 2076, 2076, 2076, 2076, 2076, null, null, null, null, null, null, null, null, null, null, null, null, null, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7040, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 2076, 2076, 2076, 2076, 2076, 2076, 2076, null, null, null, null, null, null, null, null, null, null, null, null, null, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7290, 1854, 1854, 1854, 1854, 1854, 1854, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, null, null, null, null, null, null, null, null, null, null, null, null, null, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7540, 1854, 1854, 1854, 1854, 1854, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, null, null, null, null, null, null, null, null, null, null, null, null, null, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7790, 1854, 1854, 1854, 1854, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, null, null, null, null, null, null, null, null, null, null, null, null, null, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(8040, 1854, 1854, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, 2076, null, null, null, null, null, null, null, null, null, null, null, null, null, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into exxen Values(1790, 160, 170, 180, 190, 199, 209, 219, 229, 238, 248, 258, 268, 277, 287, 297, 307, 317, 326, 336, 346, 356, 365, 375, 385, 395, 404, 414, 424, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2040, 176, 188, 199, 211, 222, 234, 245, 257, 268, 280, 291, 303, 314, 326, 338, 349, 361, 372, 384, 395, 407, 418, 430, 441, 453, 464, 476, 487, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2290, 192, 205, 219, 232, 245, 258, 272, 285, 298, 312, 325, 338, 351, 365, 378, 391, 405, 418, 431, 445, 458, 471, 484, 498, 511, 524, 538, 551, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2540, 208, 223, 238, 253, 268, 283, 298, 313, 328, 343, 358, 373, 388, 404, 419, 434, 449, 464, 479, 494, 509, 524, 539, 554, 569, 584, 599, 614, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(2790, 224, 240, 257, 274, 291, 308, 325, 341, 358, 375, 392, 409, 425, 442, 459, 476, 493, 510, 526, 543, 560, 577, 594, 610, 627, 644, 661, 678, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3040, 239, 258, 277, 295, 314, 332, 351, 369, 388, 407, 425, 444, 462, 481, 500, 518, 537, 555, 574, 593, 611, 630, 648, 667, 685, 704, 723, 741, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3290, 255, 276, 296, 316, 337, 357, 377, 398, 418, 438, 459, 479, 499, 520, 540, 560, 581, 601, 622, 642, 662, 683, 703, 723, 744, 764, 784, 805, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3540, 271, 293, 315, 337, 359, 382, 404, 426, 448, 470, 492, 514, 536, 559, 581, 603, 625, 647, 669, 691, 713, 735, 758, 780, 802, 824, 846, 868, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(3790, 287, 311, 335, 358, 382, 406, 430, 454, 478, 502, 526, 550, 573, 597, 621, 645, 669, 693, 717, 741, 764, 788, 812, 836, 860, 884, 908, 932, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4040, 303, 328, 354, 380, 405, 431, 457, 482, 508, 533, 559, 585, 610, 636, 662, 687, 713, 739, 764, 790, 816, 841, 867, 893, 918, 944, 969, 995, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4290, 318, 346, 373, 401, 428, 456, 483, 510, 538, 565, 593, 620, 647, 675, 702, 730, 757, 784, 812, 839, 867, 894, 922, 949, 976, 1004, 1031, 1059, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4540, 334, 363, 393, 422, 451, 480, 509, 539, 568, 597, 626, 655, 684, 714, 743, 772, 801, 830, 859, 889, 918, 947, 976, 1005, 1035, 1064, 1093, 1122, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(4790, 350, 381, 412, 443, 474, 505, 536, 567, 598, 629, 659, 690, 721, 752, 783, 814, 845, 876, 907, 938, 969, 1000, 1031, 1062, 1093, 1124, 1155, 1186, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5040, 366, 399, 431, 464, 497, 529, 562, 595, 628, 660, 693, 726, 758, 791, 824, 856, 889, 922, 955, 987, 1020, 1053, 1085, 1118, 1151, 1184, 1216, 1249, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5290, 382, 416, 451, 485, 520, 554, 589, 623, 657, 692, 726, 761, 795, 830, 864, 899, 933, 968, 1002, 1037, 1071, 1106, 1140, 1175, 1209, 1243, 1278, 1312, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5540, 398, 434, 470, 506, 542, 579, 615, 651, 687, 724, 760, 796, 832, 869, 905, 941, 977, 1014, 1050, 1086, 1122, 1158, 1195, 1231, 1267, 1303, 1340, 1376, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(5790, 413, 451, 489, 527, 565, 603, 641, 679, 717, 755, 793, 831, 869, 907, 945, 983, 1021, 1059, 1097, 1135, 1173, 1211, 1249, 1287, 1325, 1363, 1401, 1439, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6040, 429, 469, 509, 548, 588, 628, 668, 708, 747, 787, 827, 867, 906, 946, 986, 1026, 1065, 1105, 1145, 1185, 1224, 1264, 1304, 1344, 1384, 1423, 1463, 1503, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6290, 445, 486, 528, 570, 611, 653, 694, 736, 777, 819, 860, 902, 943, 985, 1026, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6540, 461, 504, 547, 591, 634, 677, 721, 764, 807, 850, 894, 937, 980, 1024, 1067, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(6790, 477, 522, 567, 612, 657, 702, 747, 792, 837, 882, 927, 972, 1017, 1062, 1107, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7040, 492, 539, 586, 633, 680, 727, 773, 820, 867, 914, 961, 1007, 1054, 1101, 1148, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7290, 508, 557, 605, 654, 703, 751, 800, 848, 897, 946, 994, 1043, 1091, 1140, 1188, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7540, 524, 574, 625, 675, 725, 776, 826, 877, 927, 977, 1028, 1078, 1128, 1179, 1229, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(7790, 540, 592, 644, 696, 748, 800, 853, 905, 957, 1009, 1061, 1113, 1165, 1217, 1270, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Insulation Foam')");
+        sqLiteDatabase.execSQL("insert into exxen Values(8040, 556, 610, 663, 717, 771, 825, 879, 933, 987, 1041, 1095, 1148, 1202, 1256, 1310, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Insulation Foam')");
+
+        //rota
+        sqLiteDatabase.execSQL("CREATE TABLE rota (`Projection` INTEGER, `1800` REAL, `2000` REAL, `2200` REAL, `2400` REAL, `2600` REAL, `2800` REAL, `3000` REAL, `3200` REAL, `3400` REAL, `3600` REAL, `3800` REAL, `4000` REAL, `option` TEXT )");
+        sqLiteDatabase.execSQL("insert into rota Values(1134, 4029, 4082, 4134, 4186, 4239, 4291, 4343, 4396, 4448, 4501, 4553, 4605, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(1292, 4134, 4191, 4248, 4306, 4363, 4420, 4478, 4535, 4592, 4650, 4707, 4764, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(1450, 4238, 4300, 4363, 4425, 4487, 4550, 4612, 4674, 4737, 4799, 4861, 4923, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(1608, 4342, 4410, 4477, 4544, 4611, 4679, 4746, 4813, 4881, 4948, 5015, 5083, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(1766, 4447, 4519, 4591, 4663, 4736, 4808, 4880, 4953, 5025, 5097, 5169, 5242, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(1924, 4551, 4628, 4705, 4783, 4860, 4937, 5014, 5092, 5169, 5246, 5324, 5401, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(2082, 4655, 4737, 4820, 4902, 4984, 5066, 5149, 5231, 5313, 5395, 5478, 5560, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(2240, 4759, 4847, 4934, 5021, 5108, 5196, 5283, 5370, 5457, 5545, 5632, 5719, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(2398, 4864, 4956, 5048, 5140, 5233, 5325, 5417, 5509, 5601, 5694, 5786, 5878, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(2556, 4968, 5065, 5162, 5260, 5357, 5454, 5551, 5648, 5746, 5843, 5940, 6037, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(2714, 5072, 5174, 5277, 5379, 5481, 5583, 5685, 5788, 5890, 5992, 6094, 6196, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(2872, 5177, 5284, 5391, 5498, 5605, 5712, 5820, 5927, 6034, 6141, 6248, 6355, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(3030, 5281, 5393, 5505, 5617, 5729, 5842, 5954, 6066, 6178, 6290, 6402, 6514, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(3188, 5385, 5502, 5619, 5737, 5854, 5971, 6088, 6205, 6322, 6439, 6556, 6674, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(3346, 5490, 5612, 5734, 5856, 5978, 6100, 6222, 6344, 6466, 6588, 6711, 6833, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(3504, 5594, 5721, 5848, 5975, 6102, 6229, 6356, 6483, 6611, 6738, 6865, 6992, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(3662, 5698, 5830, 5962, 6094, 6226, 6358, 6491, 6623, 6755, 6887, 7019, 7151, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(3820, 5802, 5939, 6077, 6214, 6351, 6488, 6625, 6762, 6899, 7036, 7173, 7310, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(3978, 5907, 6049, 6191, 6333, 6475, 6617, 6759, 6901, 7043, 7185, 7327, 7469, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(4136, 6011, 6158, 6305, 6452, 6599, 6746, 6893, 7040, 7187, 7334, 7481, 7628, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(4294, 6115, 6267, 6419, 6571, 6723, 6875, 7027, 7179, 7331, 7483, 7635, 7787, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(4452, 6220, 6377, 6534, 6691, 6848, 7005, 7161, 7318, 7475, 7632, 7789, 7946, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(4610, 6324, 6486, 6648, 6810, 6972, 7134, 7296, 7458, 7620, 7782, 7944, 8105, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(4768, 6428, 6595, 6762, 6929, 7096, 7263, 7430, 7597, 7764, 7931, 8098, 8265, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(4926, 6533, 6704, 6876, 7048, 7220, 7392, 7564, 7736, 7908, 8080, 8252, 8424, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(5084, 6637, 6814, 6991, 7168, 7344, 7521, 7698, 7875, 8052, 8229, 8406, 8583, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(5242, 6741, 6923, 7105, 7287, 7469, 7651, 7832, 8014, 8196, 8378, 8560, 8742, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(5400, 6845, 7032, 7219, 7406, 7593, 7780, 7967, 8153, 8340, 8527, 8714, 8901, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(5558, 6950, 7142, 7333, 7525, 7717, 7909, 8101, 8293, 8485, 8676, 8868, 9060, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(5716, 7054, 7251, 7448, 7645, 7841, 8038, 8235, 8432, 8629, 8826, 9022, 9219, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(5874, 7158, 7360, 7562, 7764, 7966, 8167, 8369, 8571, 8773, 8975, 9176, 9378, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(6032, 7263, 7469, 7676, 7883, 8090, 8297, 8503, 8710, 8917, 9124, 9331, 9537, 'standard')");
+        sqLiteDatabase.execSQL("insert into rota Values(1134, 1084, 1084, 1084, 1084, 1084, 1084, 1237, 1237, 1237, 1237, 1237, 1237, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(1292, 1141, 1141, 1141, 1141, 1141, 1141, 1302, 1302, 1302, 1302, 1302, 1302, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(1450, 1153, 1153, 1153, 1153, 1153, 1153, 1316, 1316, 1316, 1316, 1316, 1316, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(1608, 1153, 1153, 1153, 1153, 1153, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(1766, 1153, 1153, 1153, 1153, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(1924, 1153, 1153, 1153, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(2082, 1153, 1153, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(2240, 1153, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(2398, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(2556, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(2714, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(2872, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(3030, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(3188, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(3346, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(3504, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(3662, 1316, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(3820, 1316, 1316, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(3978, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(4136, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(4294, 1316, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(4452, 1316, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(4610, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(4768, 1316, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(4926, 1316, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(5084, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(5242, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(5400, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(5558, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 1601, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(5716, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1465, 1601, 1601, 1601, 1601, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(5874, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(6032, 1465, 1465, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 1601, 'Led Stripe Dimmer Lighting')");
+        sqLiteDatabase.execSQL("insert into rota Values(1134, 1252, 1252, 1252, 1252, 1252, 1252, 1451, 1451, 1451, 1451, 1451, 1451, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(1292, 1277, 1277, 1277, 1277, 1277, 1277, 1481, 1481, 1481, 1481, 1481, 1481, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(1450, 1277, 1277, 1277, 1277, 1277, 1366, 1481, 1481, 1481, 1481, 1481, 1481, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(1608, 1277, 1277, 1277, 1277, 1277, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(1766, 1277, 1277, 1277, 1277, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(1924, 1277, 1277, 1277, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(2082, 1277, 1277, 1366, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(2240, 1277, 1277, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(2398, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(2556, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(2714, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(2872, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(3030, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(3188, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1560, 1560, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(3346, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1612, 1612, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(3504, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(3662, 1481, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(3820, 1481, 1481, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(3978, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(4136, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(4294, 1481, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(4452, 1481, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(4610, 1481, 1481, 1612, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(4768, 1481, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(4926, 1481, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(5084, 1560, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(5242, 1612, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(5400, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(5558, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 1854, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(5716, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1680, 1854, 1854, 1854, 1854, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(5874, 1680, 1680, 1792, 1792, 1792, 1792, 1792, 1854, 1854, 1854, 1854, 1854, 'RGB Led-Hidden Stripe Lightin')");
+        sqLiteDatabase.execSQL("insert into rota Values(6032, 1680, 1680, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 1854, 'RGB Led-Hidden Stripe Lightin')");
+
+        //vertex
+        sqLiteDatabase.execSQL("CREATE TABLE vertex (`Projection` INTEGER, `1000` REAL, `1200` REAL, `1400` REAL, `1600` REAL, `1800` REAL, `2000` REAL, `2200` REAL, `2400` REAL, `2600` REAL, `2800` REAL, `3000` REAL, `3200` REAL, `3400` REAL, `3600` REAL, `3800` REAL, `4000` REAL,`4200` REAL,`4400` REAL,`4600` REAL,`4800` REAL,`5000` REAL,`5200` REAL,`5400` REAL,`5600` REAL,`5800` REAL,`6000` REAL,`option` TEXT)");
+        sqLiteDatabase.execSQL("insert into vertex Values(1000, 664, 695, 726, 757, 788, 819, 850, 881, 912, 943, 1022, 1053, 1084, 1115, 1146, 1177, 1208, 1239, 1270, 1301, 1332, 1363, 1394, 1464, 1495, 1526, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(1200, 675, 708, 741, 774, 807, 840, 873, 906, 939, 1020, 1053, 1086, 1119, 1152, 1185, 1218, 1251, 1284, 1317, 1349, 1382, 1415, 1448, 1520, 1553, 1586, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(1400, 687, 721, 756, 791, 826, 861, 896, 931, 966, 1049, 1084, 1119, 1153, 1188, 1223, 1258, 1293, 1328, 1363, 1398, 1433, 1468, 1503, 1576, 1611, 1646, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(1600, 698, 735, 771, 808, 845, 882, 919, 956, 993, 1077, 1114, 1151, 1188, 1225, 1262, 1299, 1336, 1373, 1409, 1446, 1483, 1520, 1557, 1633, 1669, 1706, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(1800, 709, 748, 786, 825, 864, 903, 942, 981, 1019, 1106, 1145, 1184, 1223, 1262, 1300, 1339, 1378, 1417, 1456, 1495, 1533, 1572, 1650, 1689, 1728, 1767, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(2000, 720, 761, 801, 842, 883, 924, 965, 1005, 1046, 1135, 1176, 1217, 1257, 1298, 1339, 1380, 1421, 1461, 1502, 1543, 1584, 1625, 1704, 1745, 1786, 1827, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(2200, 731, 774, 817, 859, 902, 945, 988, 1030, 1073, 1164, 1207, 1249, 1292, 1335, 1378, 1420, 1463, 1506, 1549, 1591, 1634, 1677, 1759, 1801, 1844, 1887, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(2400, 742, 787, 832, 876, 921, 966, 1010, 1055, 1100, 1193, 1237, 1282, 1327, 1371, 1416, 1461, 1506, 1550, 1595, 1640, 1685, 1729, 1813, 1858, 1902, 1947, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(2600, 753, 800, 847, 893, 940, 987, 1033, 1080, 1127, 1221, 1268, 1315, 1361, 1408, 1455, 1501, 1548, 1595, 1642, 1688, 1735, 1782, 1867, 1914, 1961, 2007, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(2800, 764, 813, 862, 910, 959, 1008, 1056, 1105, 1154, 1250, 1299, 1347, 1396, 1445, 1493, 1542, 1591, 1639, 1688, 1737, 1785, 1834, 1921, 1970, 2019, 2067, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(3000, 775, 826, 877, 927, 978, 1028, 1079, 1130, 1180, 1279, 1330, 1380, 1431, 1481, 1532, 1583, 1633, 1684, 1734, 1785, 1836, 1886, 1976, 2026, 2077, 2128, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(3200, 787, 839, 892, 944, 997, 1049, 1102, 1155, 1207, 1308, 1360, 1413, 1465, 1518, 1571, 1623, 1676, 1728, 1781, 1833, 1886, 1977, 2030, 2083, 2135, 2188, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(3400, 798, 852, 907, 961, 1016, 1070, 1125, 1179, 1234, 1336, 1391, 1446, 1500, 1555, 1609, 1664, 1718, 1773, 1827, 1882, 1936, 2030, 2084, 2139, 2193, 2248, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(3600, 809, 865, 922, 978, 1035, 1091, 1148, 1204, 1261, 1365, 1422, 1478, 1535, 1591, 1648, 1704, 1761, 1817, 1874, 1930, 1987, 2082, 2139, 2195, 2252, 2308, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(3800, 820, 878, 937, 995, 1054, 1112, 1171, 1229, 1336, 1394, 1452, 1511, 1569, 1628, 1686, 1745, 1803, 1862, 1920, 1979, 2037, 2134, 2193, 2251, 2310, 2368, 'standard')");
+        sqLiteDatabase.execSQL("insert into vertex Values(4000, 831, 891, 952, 1012, 1073, 1133, 1194, 1254, 1362, 1423, 1483, 1544, 1604, 1664, 1725, 1785, 1846, 1906, 1967, 2027, 2087, 2187, 2247, 2308, 2368, 2428, 'standard')");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //aerolux
         sqLiteDatabase.execSQL("CREATE TABLE aerolux (`Projection` INTEGER, `1800` REAL, `2000` REAL, `2200` REAL, `2400` REAL, `2600` REAL, `2800` REAL, `3000` REAL, `3200` REAL, `3400` REAL, `3600` REAL, `3800` REAL, `4000` REAL,`option` TEXT )");
@@ -598,6 +889,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 return "mn3";
             case "Cantilever Radian":
                 return "mn4";
+            case "Vertex 150 Zip System":
+                return "Vertex";
             default:
                 return Name;
         }
