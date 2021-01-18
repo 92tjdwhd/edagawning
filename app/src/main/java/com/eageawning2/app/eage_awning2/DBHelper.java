@@ -32,37 +32,44 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','tw33',10,0,1,1)");
         sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','Exxen',11,0,0,0)");
         sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','Rota',12,0,0,0)");
-        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','Vertex',13,0,2,0)");
+        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','vertex',13,0,2,0)");
+        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','sapphire_two',14,0,2,0)");
+        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','sapphire_three',15,0,2,0)");
+        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','sliding_glass_3_2',16,0,2,0)");
+        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','sliding_glass_3_3',16,0,2,0)");
+        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','sliding_glass_5_4',16,0,2,0)");
+        sqLiteDatabase.execSQL("insert into production_info Values( 'Standard','sliding_glass_5_5',16,0,2,0)");
 
-        sqLiteDatabase.execSQL("CREATE TABLE production_width_info( `aerolux` TEXT, `axis` TEXT, `quattro` TEXT, `novo` TEXT, `radian` TEXT, `luna` TEXT, `mn3` TEXT, `mn4` TEXT, `tw22` TEXT, `tw33` TEXT, `exxen` TEXT, `rota` TEXT, `vertex` TEXT)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(1800,1800,2500,300,300,300,300,300,300,300,1800,1800,1000)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(2000,2000,3000,400,400,400,400,400,400,400,2000,2000,1200)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(2200,2200,3500,450,450,500,450,450,450,450,2200,2200,1400)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(2400,2400,4000,500,500,600,500,500,500,500,2400,2400,1600)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(2600,2600,4500,600,600,700,600,600,600,600,2600,2600,1800)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(2800,2800,5000,700,700,800,700,700,700,700,2800,2800,2000)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(3000,3000,5500,800,800,900,800,800,800,800,3000,3000,2200)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(3200,3200,null,900,900,1000,900,900,900,900,3200,3200,2400)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(3400,3400,null,1000,1000,1100,1000,1000,1000,1000,3400,3400,3600)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(3600,3600,null,1100,1100,1200,1100,1100,1100,1100,3600,3600,3800)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(3800,3800,null,1200,1200,1300,1200,1200,1200,1200,3800,3800,4000)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(4000,4000,null,1300,1300,null,1300,1300,1300,1300,4000,4000,4200)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4200,null,null,null,null,null,null,null,null,4200,null,4400)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4400,null,null,null,null,null,null,null,null,4400,null,4600)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4500,null,null,null,null,null,null,null,null,4500,null,4800)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,4600,null,5000)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,4800,null,5200)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5000,null,5400)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5200,null,5600)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5400,null,5800)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5600,null,6000)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5800,null,null)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6000,null,null)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6200,null,null)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6400,null,null)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6600,null,null)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6800,null,null)");
-        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,7000,null,null)");
+        sqLiteDatabase.execSQL("CREATE TABLE production_width_info( `aerolux` TEXT, `axis` TEXT, `quattro` TEXT, `novo` TEXT, `radian` TEXT, `luna` TEXT, `mn3` TEXT, `mn4` TEXT, `tw22` TEXT, `tw33` TEXT, `exxen` TEXT, `rota` TEXT, `vertex` TEXT, `sapphire_two` TEXT, `sapphire_three` TEXT, `sliding_glass_3_2` TEXT, `sliding_glass_3_3` TEXT, `sliding_glass_5_4` TEXT, `sliding_glass_5_5` TEXT)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(1800,1800,2500,300,300,300,300,300,300,300,1800,1800,1000,2000,2000,1600,2200,2800,2800)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(2000,2000,3000,400,400,400,400,400,400,400,2000,2000,1200,2250,2250,1800,2400,3000,3000)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(2200,2200,3500,450,450,500,450,450,450,450,2200,2200,1400,2500,2500,2000,2600,3200,3200)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(2400,2400,4000,500,500,600,500,500,500,500,2400,2400,1600,2750,2750,2200,2800,3400,3400)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(2600,2600,4500,600,600,700,600,600,600,600,2600,2600,1800,3000,3000,2400,3000,3600,3600)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(2800,2800,5000,700,700,800,700,700,700,700,2800,2800,2000,3250,3250,null,3200,3800,3800)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(3000,3000,5500,800,800,900,800,800,800,800,3000,3000,2200,3500,3500,null,3400,4000,4000)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(3200,3200,null,900,900,1000,900,900,900,900,3200,3200,2400,3750,3750,null,3600,4200,4200)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(3400,3400,null,1000,1000,1100,1000,1000,1000,1000,3400,3400,2600,4000,4000,null,null,4400,4400)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(3600,3600,null,1100,1100,1200,1100,1100,1100,1100,3600,3600,2800,null,null,null,null,4600,4600)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(3800,3800,null,1200,1200,1300,1200,1200,1200,1200,3800,3800,3000,null,null,null,null,4800,4800)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(4000,4000,null,1300,1300,null,1300,1300,1300,1300,4000,4000,3200,null,null,null,null,null,5000)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4200,null,null,null,null,null,null,null,null,4200,null,3400,null,null,null,null,null,5200)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4400,null,null,null,null,null,null,null,null,4400,null,3600,null,null,null,null,null,5400)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,4500,null,null,null,null,null,null,null,null,4500,null,3800,null,null,null,null,null,5600)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,4600,null,4000,null,null,null,null,null,5800)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,4800,null,4200,null,null,null,null,null,6000)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5000,null,4400,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5200,null,4600,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5400,null,4800,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5600,null,5000,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,5800,null,5200,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6000,null,5400,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6200,null,5600,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6400,null,5800,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6600,null,6000,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,6800,null,null,null,null,null,null,null,null)");
+        sqLiteDatabase.execSQL("insert into production_width_info Values(null,null,null,null,null,null,null,null,null,null,7000,null,null,null,null,null,null,null,null)");
+
 
 
         //exxen
@@ -289,6 +296,64 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("insert into vertex Values(3600, 809, 865, 922, 978, 1035, 1091, 1148, 1204, 1261, 1365, 1422, 1478, 1535, 1591, 1648, 1704, 1761, 1817, 1874, 1930, 1987, 2082, 2139, 2195, 2252, 2308, 'standard')");
         sqLiteDatabase.execSQL("insert into vertex Values(3800, 820, 878, 937, 995, 1054, 1112, 1171, 1229, 1336, 1394, 1452, 1511, 1569, 1628, 1686, 1745, 1803, 1862, 1920, 1979, 2037, 2134, 2193, 2251, 2310, 2368, 'standard')");
         sqLiteDatabase.execSQL("insert into vertex Values(4000, 831, 891, 952, 1012, 1073, 1133, 1194, 1254, 1362, 1423, 1483, 1544, 1604, 1664, 1725, 1785, 1846, 1906, 1967, 2027, 2087, 2187, 2247, 2308, 2368, 2428, 'standard')");
+
+        //sapphire_two
+        sqLiteDatabase.execSQL("CREATE TABLE sapphire_two (`Projection` INTEGER, `2000` REAL, `2250` REAL, `2500` REAL, `2750` REAL, `3000` REAL, `3250` REAL, `3500` REAL, `3750` REAL, `4000` REAL,`option` TEXT)");
+        sqLiteDatabase.execSQL("insert into sapphire_two Values(2000, 1575, 1647, 1719, 1792, 1864, 1936, 2008, 2081, 2153, 'standard')");
+        sqLiteDatabase.execSQL("insert into sapphire_two Values(2250, 1634, 1711, 1789, 1865, 1943, 2020, 2097, 2174, 2251, 'standard')");
+        sqLiteDatabase.execSQL("insert into sapphire_two Values(2500, 1693, 1775, 1857, 1939, 2022, 2104, 2186, 2268, 2350, 'standard')");
+        sqLiteDatabase.execSQL("insert into sapphire_two Values(2750, 1752, 1839, 1926, 2013, 2101, 2187, 2274, 2362, 2449, 'standard')");
+        sqLiteDatabase.execSQL("insert into sapphire_two Values(3000, 1812, 1904, 1996, 2088, 2180, 2271, 2363, 2455, 2547, 'standard')");
+
+        //sapphire_three
+        sqLiteDatabase.execSQL("CREATE TABLE sapphire_three (`Projection` INTEGER, `2000` REAL, `2250` REAL, `2500` REAL, `2750` REAL, `3000` REAL, `3250` REAL, `3500` REAL, `3750` REAL, `4000` REAL,`option` TEXT)");
+        sqLiteDatabase.execSQL("insert into sapphire_three Values(2000, 1696, 1777, 1858, 1940, 2021, 2102, 2183, 2264, 2345, 'standard')");
+        sqLiteDatabase.execSQL("insert into sapphire_three Values(2250, 1755, 1841, 1928, 2013, 2099, 2185, 2271, 2357, 2444, 'standard')");
+        sqLiteDatabase.execSQL("insert into sapphire_three Values(2500, 1814, 1905, 1996, 2087, 2178, 2269, 2360, 2451, 2542, 'standard')");
+        sqLiteDatabase.execSQL("insert into sapphire_three Values(2750, 1873, 1969, 2065, 2161, 2257, 2353, 2449, 2545, 2641, 'standard')");
+        sqLiteDatabase.execSQL("insert into sapphire_three Values(3000, 1932, 2033, 2134, 2235, 2336, 2437, 2537, 2638, 2739, 'standard')");
+        sqLiteDatabase.execSQL("insert into sapphire_three Values(3250, 1992, 2097, 2203, 2308, 2415, null, null, null, null, 'standard')");
+        sqLiteDatabase.execSQL("insert into sapphire_three Values(3500, 2050, 2161, 2272, 2382, 2493, null, null, null, null, 'standard')");
+
+        //sliding_glass_3_2
+        sqLiteDatabase.execSQL("CREATE TABLE sliding_glass_3_2 (`Projection` INTEGER, `1600` REAL, `1800` REAL, `2000` REAL, `2200` REAL, `2400` REAL,`option` TEXT)");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_2 Values(1600, 854, 888, 923, 957, 992, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_2 Values(1800, 883, 920, 958, 996, 1033, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_2 Values(2000, 912, 953, 993, 1034, 1075, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_2 Values(2200, 941, 985, 1029, 1073, 1116, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_2 Values(2400, 971, 1018, 1064, 1111, 1158, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_2 Values(2600, 1000, 1050, 1100, 1150, 1199, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_2 Values(2800, 1029, 1082, 1135, 1188, 1241, 'standard')");
+
+        //sliding_glass_3_3
+        sqLiteDatabase.execSQL("CREATE TABLE sliding_glass_3_3 (`Projection` INTEGER, `2200` REAL, `2400` REAL, `2600` REAL, `2800` REAL, `3000` REAL, `3200` REAL, `3400` REAL, `3600` REAL,`option` TEXT)");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_3 Values(1600, 1008, 1043, 1078, 1112, 1147, 1182, 1216, 1251, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_3 Values(1800, 1048, 1086, 1123, 1161, 1199, 1237, 1274, 1312, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_3 Values(2000, 1088, 1128, 1169, 1210, 1251, 1292, 1332, 1373, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_3 Values(2200, 1127, 1171, 1215, 1259, 1303, 1347, 1391, 1434, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_3 Values(2400, 1167, 1214, 1261, 1308, 1355, 1402, 1449, 1496, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_3 Values(2600, 1207, 1257, 1307, 1357, 1407, 1457, 1507, 1557, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_3_3 Values(2800, 1246, 1299, 1352, 1405, 1458, 1512, 1565, 1618, 'standard')");
+
+        //sliding_glass_5_4
+        sqLiteDatabase.execSQL("CREATE TABLE sliding_glass_5_4 (`Projection` INTEGER, `2800` REAL, `3000` REAL, `3200` REAL, `3400` REAL, `3600` REAL, `3800` REAL, `4000` REAL, `4200` REAL, `4400` REAL, `4600` REAL, `4800` REAL,`option` TEXT)");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_4 Values(1600, 1211, 1249, 1287, 1325, 1364, 1402, 1440, 1478, 1516, 1554, 1593, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_4 Values(1800, 1261, 1302, 1343, 1385, 1426, 1467, 1508, 1550, 1591, 1632, 1673, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_4 Values(2000, 1311, 1355, 1399, 1444, 1488, 1532, 1577, 1621, 1665, 1710, 1754, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_4 Values(2200, 1361, 1408, 1456, 1503, 1550, 1598, 1645, 1692, 1740, 1787, 1835, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_4 Values(2400, 1411, 1461, 1512, 1562, 1613, 1663, 1713, 1764, 1814, 1865, 1915, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_4 Values(2600, 1461, 1514, 1568, 1621, 1675, 1728, 1782, 1835, 1889, 1942, 1996, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_4 Values(2800, 1511, 1567, 1624, 1680, 1737, 1794, 1850, 1907, 1963, 2020, 2077, 'standard')");
+
+        //sliding_glass_5_5
+        sqLiteDatabase.execSQL("CREATE TABLE sliding_glass_5_5 (`Projection` INTEGER, `2800` REAL, `3000` REAL, `3200` REAL, `3400` REAL, `3600` REAL, `3800` REAL, `4000` REAL, `4200` REAL, `4400` REAL, `4600` REAL, `4800` REAL, `5000` REAL, `5200` REAL, `5400` REAL, `5600` REAL, `5800` REAL, `6000` REAL,`option` TEXT)");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_5 Values(1600, 1263, 1301, 1340, 1378, 1416, 1455, 1493, 1531, 1570, 1608, 1646, 1685, 1723, 1761, 1800, 1838, 1877, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_5 Values(1800, 1314, 1355, 1397, 1438, 1480, 1521, 1562, 1604, 1645, 1687, 1728, 1770, 1811, 1852, 1894, 1935, 1977, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_5 Values(2000, 1365, 1409, 1454, 1498, 1543, 1587, 1632, 1676, 1721, 1765, 1810, 1854, 1899, 1944, 1988, 2033, 2077, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_5 Values(2200, 1416, 1464, 1511, 1559, 1606, 1654, 1701, 1749, 1797, 1844, 1892, 1939, 1987, 2035, 2082, 2130, 2177, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_5 Values(2400, 1467, 1518, 1568, 1619, 1670, 1720, 1771, 1822, 1872, 1923, 1974, 2024, 2075, 2126, 2176, 2227, 2277, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_5 Values(2600, 1518, 1572, 1626, 1679, 1733, 1787, 1841, 1894, 1948, 2002, 2055, 2109, 2163, 2217, 2270, 2324, 2378, 'standard')");
+        sqLiteDatabase.execSQL("insert into sliding_glass_5_5 Values(2800, 1569, 1626, 1683, 1740, 1796, 1853, 1910, 1967, 2024, 2080, 2137, 2194, 2251, 2308, 2364, 2421, 2478, 'standard')");
 
 
 
@@ -890,7 +955,19 @@ public class DBHelper extends SQLiteOpenHelper {
             case "Cantilever Radian":
                 return "mn4";
             case "Vertex 150 Zip System":
-                return "Vertex";
+                return "vertex";
+            case "Sapphire Two Panels":
+                return "sapphire_two";
+            case "Sapphire Three Panels":
+                return "sapphire_three";
+            case "Sliding Glass 3rails 2panels":
+                return "sliding_glass_3_2";
+            case "Sliding Glass 3rails 3panels":
+                return "sliding_glass_3_3";
+            case "Sliding Glass 5rails 4panels":
+                return "sliding_glass_5_4";
+            case "Sliding Glass 5rails 5panels":
+                return "sliding_glass_5_5";
             default:
                 return Name;
         }

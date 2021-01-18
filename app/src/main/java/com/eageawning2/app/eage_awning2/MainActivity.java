@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<PowerMenuItem> proName;
     RecycleAdapter mMyAdapter;
     String basePrice = "0", hddPrice = "0", dkPrice = "0", rgbPrice = "0", ledPrice = "0", alPrice = "0", ifoamPrice = "0";
-    TextView widthUnit, projectionUnit;
+    TextView widthUnit, projectionUnit, proTextView;
     FinalPriceClass totalPrice = FinalPriceClass.getInstance();
 
     @Override
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         db = dbHelper.getWritableDatabase();
 
-
+        proTextView = findViewById(R.id.proTextView);
         widthUnit = findViewById(R.id.width_unit);
         projectionUnit = findViewById(R.id.projection_unit);
         mNameButton = findViewById(R.id.product_name_button);
@@ -177,7 +177,9 @@ public class MainActivity extends AppCompatActivity {
     public void setListener() {
         proName = new ArrayList<PowerMenuItem>();
         proName.add(new PowerMenuItem("Aerolux", false));
+        proName.add(new PowerMenuItem("Exxen", false));
         proName.add(new PowerMenuItem("Axis", false));
+        proName.add(new PowerMenuItem("Rota", false));
         proName.add(new PowerMenuItem("Quattro", false));
         proName.add(new PowerMenuItem("Novo", false));
         proName.add(new PowerMenuItem("Radian", false));
@@ -186,9 +188,13 @@ public class MainActivity extends AppCompatActivity {
         proName.add(new PowerMenuItem("Cantilever Radian", false));
         proName.add(new PowerMenuItem("Plaza Novo", false));
         proName.add(new PowerMenuItem("Plaza Radian", false));
-        proName.add(new PowerMenuItem("Exxen", false));
-        proName.add(new PowerMenuItem("Rota", false));
         proName.add(new PowerMenuItem("Vertex 150 Zip System", false));
+        proName.add(new PowerMenuItem("Sapphire Two Panels", false));
+        proName.add(new PowerMenuItem("Sapphire Three Panels", false));
+        proName.add(new PowerMenuItem("Sliding Glass 3rails 2panels", false));
+        proName.add(new PowerMenuItem("Sliding Glass 3rails 3panels", false));
+        proName.add(new PowerMenuItem("Sliding Glass 5rails 4panels", false));
+        proName.add(new PowerMenuItem("Sliding Glass 5rails 5panels", false));
         mNameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -238,6 +244,12 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             select_al.setVisibility(View.INVISIBLE);
                         }
+                        if(item.title.equals("Vertex 150 Zip System") || item.title.equals("Sapphire Two Panels") ||item.title.equals("Sapphire Three Panels") || item.title.equals("Sliding Glass 3rails 2panels")|| item.title.equals("Sliding Glass 3rails 3panels") || item.title.equals("Sliding Glass 5rails 4panels")|| item.title.equals("Sliding Glass 5rails 5panels")){
+                            proTextView.setText("제품사이즈 - 높이(Height)");
+                        }else {
+                            proTextView.setText("제품사이즈 - 돌출(Projection)");
+                        }
+
                         mNameButton.setText(item.title);
                         mProjectionButton.setText("Click");
                         mWidthButton.setText("Click");
@@ -332,6 +344,48 @@ public class MainActivity extends AppCompatActivity {
                                     BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
                                     mProjectionButton.setText("Click");
                                     mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", Integer.parseInt(bigDecimal.toString())));
+                                } else if (mNameButton.getText().equals("Sapphire Three Panels")) {
+                                    if (Integer.parseInt(item.title) > 3000) {
+                                        String[][] projectionarray = dbHelper.getprojectionResult((String) mNameButton.getText());
+                                        ArrayList<PowerMenuItem> projection = new ArrayList<PowerMenuItem>();
+                                        for (int i = 0; i < projectionarray.length; i++) {
+                                            if (Integer.parseInt(projectionarray[i][0]) > 3000)
+                                                continue;
+                                            if (projectionarray[i][0] != null) {
+                                                projection.add(new PowerMenuItem(projectionarray[i][0], false));
+                                                if (!opctionType.equals(String.valueOf(0)))
+                                                    projectionUnit.setText("(단위: cm)");
+                                                else
+                                                    projectionUnit.setText("(단위: mm)");
+                                            }
+                                        }
+                                        mProjectionPowerMenu = new PowerMenu.Builder(getApplicationContext())
+                                                .addItemList(projection)
+                                                .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT).setHeight(800).setWith(500).build();
+                                    } else {
+                                        String[][] projectionarray = dbHelper.getprojectionResult((String) mNameButton.getText());
+                                        ArrayList<PowerMenuItem> projection = new ArrayList<PowerMenuItem>();
+                                        for (int i = 0; i < projectionarray.length; i++) {
+                                            if (projectionarray[i][0] != null) {
+                                                projection.add(new PowerMenuItem(projectionarray[i][0], false));
+                                                if (!opctionType.equals(String.valueOf(0)))
+                                                    projectionUnit.setText("(단위: cm)");
+                                                else
+                                                    projectionUnit.setText("(단위: mm)");
+                                            }
+                                        }
+                                        mProjectionPowerMenu = new PowerMenu.Builder(getApplicationContext())
+                                                .addItemList(projection)
+                                                .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT).setHeight(800).setWith(500).build();
+                                    }
+                                    mWidthButton.setText(item.title);
+                                    optionReset();
+                                    totalPrice.resetTotal();
+                                    mWidthPowerMenu.dismiss();
+                                    widthChoice = true;
+                                    BigDecimal bigDecimal = new BigDecimal(totalPrice.getTotalPrice());
+                                    mProjectionButton.setText("Click");
+                                    mPriceSumButton.setText(String.format("합계금액:￦%,d \n견적확인", Integer.parseInt(bigDecimal.toString())));
                                 } else {
                                     mWidthButton.setText(item.title);
                                     String[][] Pricearray = dbHelper.getPriceResult(mNameButton.getText().toString(), item.title, mProjectionButton.getText().toString(), "standard");
@@ -363,6 +417,25 @@ public class MainActivity extends AppCompatActivity {
                                         ArrayList<PowerMenuItem> projection = new ArrayList<PowerMenuItem>();
                                         for (int i = 0; i < projectionarray.length; i++) {
                                             if (Integer.parseInt(projectionarray[i][0]) > 6040)
+                                                continue;
+                                            if (projectionarray[i][0] != null) {
+                                                projection.add(new PowerMenuItem(projectionarray[i][0], false));
+                                                if (!opctionType.equals(String.valueOf(0)))
+                                                    projectionUnit.setText("(단위: cm)");
+                                                else
+                                                    projectionUnit.setText("(단위: mm)");
+                                            }
+                                        }
+                                        mProjectionPowerMenu = new PowerMenu.Builder(getApplicationContext())
+                                                .addItemList(projection)
+                                                .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT).setHeight(800).setWith(500).build();
+                                    }
+                                }else if(mNameButton.getText().equals("Sapphire Three Panels")){
+                                    if (Integer.parseInt(item.title) > 3000) {
+                                        String[][] projectionarray = dbHelper.getprojectionResult((String) mNameButton.getText());
+                                        ArrayList<PowerMenuItem> projection = new ArrayList<PowerMenuItem>();
+                                        for (int i = 0; i < projectionarray.length; i++) {
+                                            if (Integer.parseInt(projectionarray[i][0]) > 3000)
                                                 continue;
                                             if (projectionarray[i][0] != null) {
                                                 projection.add(new PowerMenuItem(projectionarray[i][0], false));

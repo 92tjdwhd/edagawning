@@ -315,6 +315,47 @@ public class ResultActivity extends AppCompatActivity {
                     proimage.setImageResource(R.drawable.tw33_three);
                 }
                 break;
+            case "Vertex 150 Zip System":
+                pdfimage.setImageResource(R.drawable.vertex_150);
+                proimage.setImageResource(R.drawable.vertex_150p);
+                break;
+            case "Exxen":
+                if(proWidth <= 4500){
+                    pdfimage.setImageResource(R.drawable.exxen_1);
+                    proimage.setImageResource(R.drawable.exxen_one);
+                }else {
+                    pdfimage.setImageResource(R.drawable.exxen_2);
+                    proimage.setImageResource(R.drawable.exxen_two);
+                }
+                break;
+            case "Rota":
+                pdfimage.setImageResource(R.drawable.rota_1);
+                proimage.setImageResource(R.drawable.rota_one);
+                break;
+            case "Sapphire Two Panels":
+                pdfimage.setImageResource(R.drawable.sap_2);
+                proimage.setImageResource(R.drawable.sap_two);
+                break;
+            case "Sapphire Three Panels":
+                pdfimage.setImageResource(R.drawable.sap_3);
+                proimage.setImageResource(R.drawable.sap_three);
+                break;
+            case "Sliding Glass 3rails 2panels":
+                pdfimage.setImageResource(R.drawable.sl_3_2);
+                proimage.setImageResource(R.drawable.sl_three_two);
+                break;
+            case "Sliding Glass 3rails 3panels":
+                pdfimage.setImageResource(R.drawable.sl_3_3);
+                proimage.setImageResource(R.drawable.sl_three_three);
+                break;
+            case "Sliding Glass 5rails 4panels":
+                pdfimage.setImageResource(R.drawable.sl_5_4);
+                proimage.setImageResource(R.drawable.sl_five_four);
+                break;
+            case "Sliding Glass 5rails 5panels":
+                pdfimage.setImageResource(R.drawable.sl_5_5);
+                proimage.setImageResource(R.drawable.sl_five_five);
+                break;
 
         }
 
